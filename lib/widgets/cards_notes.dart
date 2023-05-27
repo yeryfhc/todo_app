@@ -7,22 +7,33 @@ class TheCardNote extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    return Container( color: Colors.white,
       width: double.infinity,
-      child:  Card(
+      child:   const  Card(
+        color: Colors.yellow,
         child:Column(
           mainAxisSize: MainAxisSize.max,
+
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(children: [
-           Text('Title', style: TextStyle(fontSize: 30),), 
-           SizedBox(width: 300,),
-          Icon(Icons.circle,color: Colors.green,)
-
-            ],),
-
+          children: [ Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Center(child: Text('Title',style: TextStyle(fontSize: 30),)),
+              SizedBox(width: 100,),
+              SizedBox(
+                // color: Colors.red,
+                width: 90,
+                child:  Row(children: [Text('Priority',style: TextStyle(fontSize: 20),),
+                Icon(Icons.circle,color: Colors.green,)],),
+              )
+            ],
+          ),
+           
           
-          Text('this is the real note for you',style: TextStyle(fontSize: 20),)
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text('This is the real note for you ',style: TextStyle(fontSize: 20),),
+          )
     
     
           ],)  ,),

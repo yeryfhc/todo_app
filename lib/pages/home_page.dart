@@ -11,6 +11,7 @@ const HomePage({Key? key}) : super(key: key);
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar( 
+        title: const  Text('Todo App'),
         leading: DrawerButton(onPressed: (){
         
         },),
@@ -19,7 +20,7 @@ const HomePage({Key? key}) : super(key: key);
           child: Image(image: AssetImage('assets/profile.png')),
         )],
         
-        backgroundColor: const Color.fromARGB(79, 158, 158, 158),
+        backgroundColor: const Color.fromARGB(255, 255, 187, 0),
       ),
       body:   SizedBox(
         height: 800,
@@ -30,8 +31,9 @@ const HomePage({Key? key}) : super(key: key);
             return  const TheCardNote() ;
           },
         ),
-      ), floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.ad_units),
+      ), floatingActionButton: FloatingActionButton( 
+        backgroundColor: const  Color.fromARGB(255, 255, 145, 0),
+        child: const Icon(Icons.add),
         onPressed: (){
          showDialog(
         
@@ -45,40 +47,5 @@ const HomePage({Key? key}) : super(key: key);
   }
 }
 
-class AddNote extends StatelessWidget {
-  const AddNote({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return  const Stack(
-    
-         children: [
-     Center(
-       child: SizedBox(
-        width: double.infinity,
-        height: 300,
-         child: Card(
-          margin: EdgeInsets.all(10),
-          color: Color.fromARGB(220, 246, 255, 0),
-           child: Column(children: [
-             Text('Add Note',style: TextStyle(color: Colors.deepPurple,fontSize: 30,fontWeight: FontWeight.bold),),
-            TextField(
-            decoration: InputDecoration(
-                hintText: 'Title',
-              disabledBorder: InputBorder.none)
-
-            )
-           
-           ],),
-         ),
-       ),
-     )
-
-         ],
-  
-    );
-  }
-}
 

@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Todo APp',
       theme: ThemeData(
+        useMaterial3: true,
         primarySwatch: Colors.blue,
       ), initialRoute: '/',
       routes: {
