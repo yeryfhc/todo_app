@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ), initialRoute: '/',
       routes: {
-        '/':(context) => const HomePage()
+        '/':(context) => const HomePage(),
+        'NewNote':(context) => const NewNotePage(),
       },
     
       
