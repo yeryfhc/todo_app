@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CheckBox extends StatelessWidget {
-  const CheckBox({
+class CheckBoxTodo extends StatelessWidget {
+  const CheckBoxTodo({
     super.key,
   });
 

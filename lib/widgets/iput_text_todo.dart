@@ -12,7 +12,7 @@ class InputTextTodo extends StatelessWidget {
         width: 300,
         child: TextField(
         decoration: InputDecoration( labelText: labelText,labelStyle: const TextStyle(fontSize: 25) ),
-
+         
         )),
     );
   }

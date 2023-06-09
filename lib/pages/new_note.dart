@@ -8,11 +8,11 @@ const NewNotePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow,
+      backgroundColor: Colors.teal,
     appBar: AppBar( 
-      backgroundColor: const  Color.fromARGB(255, 255, 145, 0),
+      backgroundColor: Colors.teal,
       centerTitle: true,
-      title: const Text('New Note',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),),
+      title: const Text('New Note',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold, color: Colors.white),),),
       body: const   Card(
         color:  Color.fromARGB(132, 255, 235, 59),
 

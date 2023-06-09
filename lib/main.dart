@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Todo APp',
       theme: ThemeData(
         useMaterial3: true,
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.teal,
       ), initialRoute: '/',
       routes: {
         '/':(context) => const HomePage(),

@@ -11,8 +11,8 @@ const HomePage({Key? key}) : super(key: key);
   Widget build(BuildContext context) {
     return Scaffold(
       drawer:   Drawer(
-        semanticLabel: 'App Note',
-       backgroundColor: Colors.amber,
+        semanticLabel: 'App Note ',
+       backgroundColor: Colors.teal.shade400,
        child: Padding(
          padding: const  EdgeInsets.all(8.0),
          child: Column(
@@ -37,14 +37,14 @@ const HomePage({Key? key}) : super(key: key);
       ),
       appBar: AppBar( 
       
-        title: const  Text('Todo App'),
+        title: const  Text('Todo App', style: TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.bold),),
        
         actions: const [Padding(
           padding: EdgeInsets.all(4.0),
           child: Image(image: AssetImage('assets/profile.png')),
         )],
         
-        backgroundColor: const Color.fromARGB(255, 255, 187, 0),
+        backgroundColor:  Colors.teal
       ),
       body:   SizedBox(
             height: double.infinity,
@@ -56,8 +56,8 @@ const HomePage({Key? key}) : super(key: key);
        },
             ),
           ), floatingActionButton: FloatingActionButton( 
-        backgroundColor: const  Color.fromARGB(255, 255, 145, 0),
-        child: const Icon(Icons.add),
+        backgroundColor: Colors.teal,
+        child: const Icon(Icons.add,color: Colors.white,size: 30,),
         onPressed: (){
          Navigator.pushNamed(context, 'NewNote');
         }),
