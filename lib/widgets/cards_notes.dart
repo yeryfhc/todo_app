@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class TheCardNote extends StatelessWidget {
+
+class TheCardNote extends ConsumerWidget {
   const TheCardNote({
+   required this.color,
+    required this.note,
+    required this.title,
     super.key,
   });
-
+  final String title;
+  final String note;
+  final Color color;
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,ref) {
+   
+  
     return Container( color: Colors.white,
       width: double.infinity,
-      child:    const  Card(
+      child:      Card(
         color: Colors.blueGrey,
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -18,21 +27,21 @@ class TheCardNote extends StatelessWidget {
           children: [ Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Center(child: Text('Title',style: TextStyle(fontSize: 30,color: Colors.white),)),
-              SizedBox(width: 100,),
-              SizedBox(
+              Center(child: Text(title,style:const  TextStyle(fontSize: 30,color: Colors.white),)),
+              const SizedBox(width: 100,),
+                SizedBox(
                 // color: Colors.red,
                 width: 90,
-                child:  Row(children: [Text('Priority',style: TextStyle(fontSize: 20,color: Colors.white),),
-                Icon(Icons.circle,color: Colors.red,)],),
+                child:  Row(children: [const Text('Priority',style: TextStyle(fontSize: 20,color: Colors.white),),
+                Icon(Icons.circle,color:color)],),
               )
             ],
           ),
            
           
           Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text('This is the real note for you ',style: TextStyle(fontSize: 20,color: Colors.white),),
+            padding: const EdgeInsets.all(8.0),
+            child: Text(note,style: const  TextStyle(fontSize: 20,color: Colors.white),),
           )
     
     

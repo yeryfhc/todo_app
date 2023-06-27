@@ -1,14 +1,24 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'package:todo_app/model/todo_model.dart';
+
+import 'package:todo_app/provider/todo_app_ptovider.dart';
+
+
 
 import '../widgets/widgets.dart';
 
 
-class HomePage extends StatelessWidget {
+class HomePage extends ConsumerWidget {
 const HomePage({Key? key}) : super(key: key);
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context ,ref) {
+    final noteProvider= ref.watch(todoNoteProvider);
+     
+  
     return Scaffold(
       drawer:   Drawer(
         semanticLabel: 'App Note ',
@@ -33,7 +43,6 @@ const HomePage({Key? key}) : super(key: key);
          ],),
        ),
 
-
       ),
       appBar: AppBar( 
       
@@ -44,18 +53,39 @@ const HomePage({Key? key}) : super(key: key);
           child: Image(image: AssetImage('assets/profile.png')),
         )],
         
-        backgroundColor:  Colors.teal
+        backgroundColor:  Colors.tealAccent
       ),
-      body:   SizedBox(
-            height: double.infinity,
-            child: ListView.builder(
-       
-       itemCount: 15,
-       itemBuilder: (BuildContext context, int index) {
-         return  const TheCardNote() ;
-       },
-            ),
-          ), floatingActionButton: FloatingActionButton( 
+      body:FutureBuilder(
+        future: noteProvider.getNote(),
+        builder: ((context, snapshot){
+        if (snapshot.hasData){
+              return  ListView.builder(
+              itemCount: snapshot.data!.length,
+              itemBuilder: (((context, index) {
+
+                TodoModel item= snapshot.data![index];
+        return GestureDetector( 
+         onTap: (){
+          
+           
+           print(snapshot.data![index].id);
+          
+         },
+          child: TheCardNote(note: item.note.toString(), title:item.title.toString(),color: Colors.black,));
+      })));
+
+
+          
+        } else {
+           
+          return const Center(child: CircularProgressIndicator(),);
+          
+        }
+      }
+      
+      
+      
+       )) , floatingActionButton: FloatingActionButton( 
         backgroundColor: Colors.teal,
         child: const Icon(Icons.add,color: Colors.white,size: 30,),
         onPressed: (){
