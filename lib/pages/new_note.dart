@@ -57,7 +57,7 @@ const NewNotePage({Key? key}) : super(key: key);
             
             child: TextButton(onPressed: (){
                  if (textyery.text.isNotEmpty&&textyery2.text.isNotEmpty) {
-                  notesave.saveNote(TodoModel(title: textyery.text,note: textyery2.text,priority: 1));
+                  notesave.saveNote(TodoModel(title: textyery.text,note: textyery2.text,priority: '1'));
                   Navigator.pop(context);
                 }
             }, child: const  Text('Save',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 30),)),

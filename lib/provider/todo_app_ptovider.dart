@@ -1,5 +1,4 @@
 
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -25,7 +24,7 @@ class TodoNoteNotifier extends ChangeNotifier {
       // Save Note
      saveNote(TodoModel newTodomodel) async{
      final db= await DBTodoApp.db.database;
-     final res = db.insert('todonapp', newTodomodel.toMap());
+     final res = db.insert('todoApp', newTodomodel.toMap());
      notifyListeners();
      return res;
   }
@@ -42,7 +41,7 @@ class TodoNoteNotifier extends ChangeNotifier {
   // Get Note
     Future<List<TodoModel>> getNote() async{
     final db = await  DBTodoApp.db.database;
-    final res= await db.query('todonapp');
+    final res= await db.query('todoApp');
     List<TodoModel> list =res.isNotEmpty? res.map((e) => TodoModel.fromMap(e)).toList():[];
     notifyListeners();
     return list;
@@ -51,7 +50,7 @@ class TodoNoteNotifier extends ChangeNotifier {
     deleteNoteID(int id) async{
 
       final db =  await DBTodoApp.db.database;
-      final res = db.delete('todonapp',where: 'id+?',whereArgs: ['id']);
+      final res = db.delete('todoApp',where: 'id+?',whereArgs: ['id']);
       notifyListeners();
       return res;
     }
@@ -59,7 +58,7 @@ class TodoNoteNotifier extends ChangeNotifier {
     // Delete all Note 
     deleteAll()async{
      final db = await DBTodoApp.db.database;
-     db.rawDelete('DELETE FROM todonapp');
+     db.rawDelete('DELETE FROM todoApp');
      notifyListeners();
  
 

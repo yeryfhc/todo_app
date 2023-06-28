@@ -16,15 +16,15 @@ class DBTodoApp {
   
   initDB() async {
    var  documentDirectory = await getDatabasesPath();
-   String  path = join(documentDirectory,'AppTodoNote.db');
+   String  path = join(documentDirectory,'AppTodo.db');
    return  await openDatabase(path,version: 1,onOpen: (db) {  
    },onCreate: (db, version) async{
      await db.execute(
-        "CREATE TABLE todonapp("
+        "CREATE TABLE todoApp("
         " id INTEGER PRIMARY KEY,"
          "title TEXT,"
          " note  TEXT"
-         " priority int "
+         " priority TEXT "
          ")"
          
      );

@@ -15,7 +15,7 @@ class TodoModel {
     int ? id;
     String ? title;
     String ? note;
-    int? priority;
+    String? priority;
 
 factory TodoModel.fromMap(Map<String,dynamic>json)=>TodoModel(
  id:json["id"],
