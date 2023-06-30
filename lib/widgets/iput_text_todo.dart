@@ -19,6 +19,8 @@ class InputTextTodo extends ConsumerWidget{
       child: SizedBox(
         width: 300,
         child: TextField( 
+          textCapitalization: TextCapitalization.values.first,
+          
           controller:controller,
           onEditingComplete: funtion,
         decoration: InputDecoration( labelText: labelText,labelStyle: const TextStyle(fontSize: 25) ),

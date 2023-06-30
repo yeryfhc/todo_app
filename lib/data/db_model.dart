@@ -16,7 +16,7 @@ class DBTodoApp {
   
   initDB() async {
    var  documentDirectory = await getDatabasesPath();
-   String  path = join(documentDirectory,'AppTodo.db');
+   String  path = join(documentDirectory,'AppTodoApp.db');
    return  await openDatabase(path,version: 1,onOpen: (db) {  
    },onCreate: (db, version) async{
      await db.execute(
@@ -24,7 +24,7 @@ class DBTodoApp {
         " id INTEGER PRIMARY KEY,"
          "title TEXT,"
          " note  TEXT"
-         " priority TEXT "
+         
          ")"
          
      );

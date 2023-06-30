@@ -22,12 +22,14 @@ class TheCardNote extends ConsumerWidget {
         color: Colors.blueGrey,
         child: Column(
           mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+
 
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [ Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Center(child: Text(title,style:const  TextStyle(fontSize: 30,color: Colors.white),)),
+              Center(child: Text(title,style:const  TextStyle(fontSize: 30,color: Colors.white,overflow: TextOverflow.ellipsis),)),
               const SizedBox(width: 100,),
                 SizedBox(
                 // color: Colors.red,
@@ -40,8 +42,8 @@ class TheCardNote extends ConsumerWidget {
            
           
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(note,style: const  TextStyle(fontSize: 20,color: Colors.white),),
+            padding: const EdgeInsets.only(left: 30),
+            child:  Text(note,style: const  TextStyle(fontSize: 20,color: Colors.white,overflow: TextOverflow.ellipsis))
           )
     
     
