@@ -3,11 +3,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
 class TheCardNote extends ConsumerWidget {
-  const TheCardNote({
+  const TheCardNote({super.key, 
+
    required this.color,
     required this.note,
     required this.title,
-    super.key,
+    
   });
   final String title;
   final String note;

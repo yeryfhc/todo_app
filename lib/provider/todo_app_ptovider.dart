@@ -50,7 +50,7 @@ class TodoNoteNotifier extends ChangeNotifier {
     deleteNoteID(int id) async{
 
       final db =  await DBTodoApp.db.database;
-      final res = db.delete('todoApp',where: 'id+?',whereArgs: ['id']);
+      final res = db.delete('todoApp',where: 'id=?',whereArgs: [id]);
       notifyListeners();
       return res;
     }

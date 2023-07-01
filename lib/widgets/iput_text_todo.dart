@@ -4,7 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // ignore: must_be_immutable
 class InputTextTodo extends ConsumerWidget{
-  InputTextTodo({
+  InputTextTodo(
+  
+    {
     super.key, required this.labelText,
     required this.controller,
     required this.funtion
@@ -14,7 +16,7 @@ class InputTextTodo extends ConsumerWidget{
     TextEditingController controller;
   @override
   Widget build(BuildContext context,ref) {
-    // final yery= ref.watch(saveTodoNote())
+    
     return  Center(
       child: SizedBox(
         width: 300,

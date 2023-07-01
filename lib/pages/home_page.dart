@@ -13,7 +13,7 @@ import '../widgets/widgets.dart';
 
 
 class HomePage extends ConsumerWidget {
-const HomePage({Key? key}) : super(key: key);
+const HomePage({Key? key}) : super(key:key);
   @override
   Widget build(BuildContext context ,ref) {
     final noteProvider= ref.watch(todoNoteProvider);
@@ -64,14 +64,15 @@ const HomePage({Key? key}) : super(key: key);
               itemBuilder: (((context, index) {
 
                 TodoModel item= snapshot.data![index];
-        return GestureDetector( 
-         onTap: (){
-          
-           
-           print(snapshot.data![index].id);
-          
-         },
-          child: TheCardNote(note: item.note.toString(), title:item.title.toString(),color: Colors.black,));
+             int? id=item.id;
+        return Dismissible(key: UniqueKey(),
+        onDismissed: (direction) {
+               noteProvider.deleteNoteID(id!);
+            print(id);
+        } ,
+
+        background: Container(color: Colors.red,),
+        child: TheCardNote(note: item.note.toString(), title:item.title.toString(),color: Colors.black,));
       })));
 
 
@@ -79,8 +80,8 @@ const HomePage({Key? key}) : super(key: key);
         } else {
            
           return const Center(child: CircularProgressIndicator(),);
-          
-        }
+           
+        } 
       }
       
       
