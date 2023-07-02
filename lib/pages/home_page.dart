@@ -20,6 +20,8 @@ const HomePage({Key? key}) : super(key:key);
      
   
     return Scaffold(
+      backgroundColor: const Color.fromARGB(54, 228, 228, 228),
+      
       drawer:   Drawer(
         semanticLabel: 'App Note ',
        backgroundColor: Colors.teal.shade400,
@@ -75,8 +77,7 @@ const HomePage({Key? key}) : super(key:key);
             // log(item.id as num);
         } ,
 
-        background: Container(color: Colors.red,
-        child: const Center(child: Row(children: [Text('Delete'),Icon(Icons.delete)],),),),
+        background: const DismisibleDeleteIcon(),
         child: TheCardNote(note: item.note.toString(), title:item.title.toString(),color: Colors.black,));
       })));
 
@@ -102,6 +103,24 @@ const HomePage({Key? key}) : super(key:key);
          Navigator.pushNamed(context, 'NewNote');
         }),
    );
+  }
+}
+
+class DismisibleDeleteIcon extends StatelessWidget {
+  const DismisibleDeleteIcon({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(color: Colors.red,borderRadius: BorderRadius.circular(25)),
+      
+    child: const Center(child: Row(
+    
+      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisSize: MainAxisSize.max,
+      children: [Text('Delete',style: TextStyle(color: Colors.white,fontSize: 30),),Icon(Icons.delete,color: Colors.white,size: 30,)],),),);
   }
 }
 

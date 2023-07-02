@@ -17,7 +17,8 @@ class TheCardNote extends ConsumerWidget {
   Widget build(BuildContext context,ref) {
    
   
-    return Container( color: Colors.white,
+    return Container( 
+    decoration: BoxDecoration(color: Colors.transparent,borderRadius: BorderRadius.circular(25)),
       width: double.infinity,
       child:      Card(
         color: Colors.blueGrey,
