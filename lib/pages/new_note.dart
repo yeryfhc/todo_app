@@ -16,13 +16,13 @@ const NewNotePage({Key? key}) : super(key: key);
    final notesave=ref.watch(todoNoteProvider.notifier);
   
     return Scaffold(
-      backgroundColor: Colors.yellow,
+      backgroundColor:const Color(0xffc46832),
     appBar: AppBar( 
-      backgroundColor: Colors.teal,
+      backgroundColor: const Color(0xffc46832),
       centerTitle: true,
       title: const Text('New Note',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold, color: Colors.white),),),
       body:   Card(
-        color: const  Color.fromARGB(132, 255, 235, 59),
+        color: Colors.white,
 
         child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -51,7 +51,7 @@ const NewNotePage({Key? key}) : super(key: key);
         children: [
           Container(
             decoration: BoxDecoration(
-              color:  Colors.black12,
+              color:  const Color(0xffc46832),
               borderRadius: BorderRadius.circular(10)),
             
             

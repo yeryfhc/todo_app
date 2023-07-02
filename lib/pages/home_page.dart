@@ -20,11 +20,13 @@ const HomePage({Key? key}) : super(key:key);
      
   
     return Scaffold(
-      backgroundColor: const Color.fromARGB(54, 228, 228, 228),
+      backgroundColor: const  Color(0xffc46832),
       
       drawer:   Drawer(
+        shadowColor: Colors.white,
+        surfaceTintColor: Colors.white,
         semanticLabel: 'App Note ',
-       backgroundColor: Colors.teal.shade400,
+       backgroundColor: const Color(0xffc46832),
        child: Padding(
          padding: const  EdgeInsets.all(8.0),
          child: Column(
@@ -55,7 +57,7 @@ const HomePage({Key? key}) : super(key:key);
           child: Image(image: AssetImage('assets/profile.png')),
         )],
         
-        backgroundColor:  Colors.tealAccent
+        backgroundColor: const  Color(0xffc46832)
       ),
       body:FutureBuilder(
         future: noteProvider.getNote(),
@@ -78,7 +80,7 @@ const HomePage({Key? key}) : super(key:key);
         } ,
 
         background: const DismisibleDeleteIcon(),
-        child: TheCardNote(note: item.note.toString(), title:item.title.toString(),color: Colors.black,));
+        child: TheCardNote(note: item.note.toString(), title:item.title.toString(),));
       })));
 
 
@@ -97,8 +99,8 @@ const HomePage({Key? key}) : super(key:key);
       
       
        )) , floatingActionButton: FloatingActionButton( 
-        backgroundColor: Colors.teal,
-        child: const Icon(Icons.add,color: Colors.white,size: 30,),
+        backgroundColor: Colors.white,
+        child: const Icon(Icons.add,color: Color(0xffc46832),size: 30,),
         onPressed: (){
          Navigator.pushNamed(context, 'NewNote');
         }),

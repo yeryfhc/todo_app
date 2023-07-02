@@ -5,14 +5,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class TheCardNote extends ConsumerWidget {
   const TheCardNote({super.key, 
 
-   required this.color,
+
     required this.note,
     required this.title,
     
   });
   final String title;
   final String note;
-  final Color color;
+  
   @override
   Widget build(BuildContext context,ref) {
    
@@ -21,7 +21,7 @@ class TheCardNote extends ConsumerWidget {
     decoration: BoxDecoration(color: Colors.transparent,borderRadius: BorderRadius.circular(25)),
       width: double.infinity,
       child:      Card(
-        color: Colors.blueGrey,
+        color: Colors.white,
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -31,22 +31,38 @@ class TheCardNote extends ConsumerWidget {
           children: [ Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Center(child: Text(title,style:const  TextStyle(fontSize: 30,color: Colors.white,overflow: TextOverflow.ellipsis),)),
+              Column(
+                children: [
+                  Center(child: Text(title,style:const  TextStyle(fontSize: 30,color: Colors.black,overflow: TextOverflow.ellipsis,fontWeight: FontWeight.bold),)),
+                 Text(note,style: const  TextStyle(fontSize: 20,color: Colors.black,overflow: TextOverflow.ellipsis,fontWeight: FontWeight.bold))
+                ],
+              ),
               const SizedBox(width: 100,),
+                  
+
+
                 SizedBox(
                 // color: Colors.red,
                 width: 90,
-                child:  Row(children: [const Text('Priority',style: TextStyle(fontSize: 20,color: Colors.white),),
-                Icon(Icons.circle,color:color)],),
+                child:  Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children:  [ const Padding(
+                    padding: EdgeInsets.only(top: 10),
+                    child:  Text('Priority',style: TextStyle(fontSize: 25,color: Colors.black,fontWeight: FontWeight.bold,overflow: TextOverflow.ellipsis),),
+                  ),
+                Switch.adaptive(
+                 activeColor: const Color(0xffc46832),
+                  
+                  
+                  value: true, onChanged: (v){
+                  return;
+                })],),
               )
             ],
           ),
            
           
-          Padding(
-            padding: const EdgeInsets.only(left: 30),
-            child:  Text(note,style: const  TextStyle(fontSize: 20,color: Colors.white,overflow: TextOverflow.ellipsis))
-          )
+          
     
     
           ],)  ,),

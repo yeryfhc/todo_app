@@ -17,8 +17,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Todo APp',
       theme: ThemeData(
+        primaryIconTheme:  const IconThemeData(color: Colors.white),
         useMaterial3: true,
-        primarySwatch: Colors.teal,
+        cardColor: Colors.white,
+        primaryColor: const Color(0xfff88340)
       ), initialRoute: '/',
       routes: {
         '/':(context) => const HomePage(),

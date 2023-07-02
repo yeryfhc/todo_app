@@ -13,9 +13,9 @@ class ButtonDrawer extends StatelessWidget {
      child: Padding(
        padding: const EdgeInsets.only(bottom:10 ),
        child: TextButton.icon(
-        style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.teal)),
+        style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.white)),
         
-        onPressed: funcion, icon: Icon(icons,color: Colors.white,), label: Text(text,style: const  TextStyle(color: Colors.white,fontSize: 25,fontWeight: FontWeight.bold),)),
+        onPressed: funcion, icon: Icon(icons,color: const  Color(0xffc46832),), label: Text(text,style: const  TextStyle(color: Colors.black,fontSize: 25,fontWeight: FontWeight.bold),)),
      ));
   }
 }

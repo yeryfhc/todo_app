@@ -12,22 +12,25 @@ class CheckBoxTodo extends ConsumerWidget {
   @override
   Widget build(BuildContext context,ref) {
     final checkProvider=ref.watch(todoNoteProvider);
-    return Container(
-      height: 60,
-      decoration: BoxDecoration(color: Colors.black12,borderRadius: BorderRadius.circular(10)),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text('Priority',style: TextStyle( color :Colors.white,fontWeight: FontWeight.bold,fontSize: 30),),
-          Checkbox(
-            activeColor: Colors.green,
-            
-            value:checkProvider.boxchek , onChanged:(void ye){
-              checkProvider.boxchecke();
-            
-    
-          } ),
-        ],
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        height: 60,
+        decoration: BoxDecoration(color:const  Color(0xffc46832),borderRadius: BorderRadius.circular(10)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text('Priority',style: TextStyle( color :Colors.white,fontWeight: FontWeight.bold,fontSize: 30),),
+            Checkbox(
+              activeColor:const  Color(0xffc46832),
+              
+              value:checkProvider.boxchek , onChanged:(void ye){
+                checkProvider.boxchecke();
+              
+      
+            } ),
+          ],
+        ),
       ),
     );
   }
