@@ -31,19 +31,25 @@ class TheCardNote extends ConsumerWidget {
           children: [ Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Column(
-                children: [
-                  Center(child: Text(title,style:const  TextStyle(fontSize: 30,color: Colors.black,overflow: TextOverflow.ellipsis,fontWeight: FontWeight.bold),)),
-                 Text(note,style: const  TextStyle(fontSize: 20,color: Colors.black,overflow: TextOverflow.ellipsis,fontWeight: FontWeight.bold))
-                ],
+              SizedBox(
+                // color: Colors.red,
+                width: 200,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                  Text(title,style:const  TextStyle(fontSize: 30,color: Colors.black,overflow: TextOverflow.ellipsis,fontWeight: FontWeight.bold),),
+                  Text(note,style: const  TextStyle(fontSize: 20,color: Colors.black,overflow: TextOverflow.ellipsis,fontWeight: FontWeight.bold))
+                  ],
+                ),
               ),
-              const SizedBox(width: 100,),
+              const SizedBox(width: 50,),
                   
 
 
                 SizedBox(
-                // color: Colors.red,
-                width: 90,
+                //  color: Colors.green,
+                width: 100,
                 child:  Column(
                   mainAxisSize: MainAxisSize.min,
                   children:  [ const Padding(
