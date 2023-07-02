@@ -59,24 +59,33 @@ const HomePage({Key? key}) : super(key:key);
         future: noteProvider.getNote(),
         builder: ((context, snapshot){
         if (snapshot.hasData){
+          
               return  ListView.builder(
               itemCount: snapshot.data!.length,
               itemBuilder: (((context, index) {
-
-                TodoModel item= snapshot.data![index];
-             int? id=item.id;
-        return Dismissible(key: UniqueKey(),
+          TodoModel item= snapshot.data![index];     
+                
+           
+        return Dismissible(key:UniqueKey(),
+        
+        direction: DismissDirection.endToStart,
         onDismissed: (direction) {
-               noteProvider.deleteNoteID(id!);
-            print(id);
+               noteProvider.deleteNoteID(item.id!);
+              
+            // log(item.id as num);
         } ,
 
-        background: Container(color: Colors.red,),
+        background: Container(color: Colors.red,
+        child: const Center(child: Row(children: [Text('Delete'),Icon(Icons.delete)],),),),
         child: TheCardNote(note: item.note.toString(), title:item.title.toString(),color: Colors.black,));
       })));
 
 
           
+        } else if(snapshot.hasError){
+           
+          return Center(child: Text(snapshot.error.toString()),);
+           
         } else {
            
           return const Center(child: CircularProgressIndicator(),);

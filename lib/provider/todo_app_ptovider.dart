@@ -11,7 +11,9 @@ import 'package:todo_app/model/todo_model.dart';
  
   
 final todoNoteProvider = ChangeNotifierProvider<TodoNoteNotifier>((ref) {
+  
   return TodoNoteNotifier() ;
+  
 });
 
 
@@ -30,12 +32,14 @@ class TodoNoteNotifier extends ChangeNotifier {
   }
     bool boxchek=false;
      boxchecke(){
+      notifyListeners();
       switch (boxchek) {
         case true: boxchek=false;
         break;
         case false:boxchek=true;
           break;
         default:boxchek=false;
+        
       }
     }
   // Get Note
@@ -43,7 +47,7 @@ class TodoNoteNotifier extends ChangeNotifier {
     final db = await  DBTodoApp.db.database;
     final res= await db.query('todoApp');
     List<TodoModel> list =res.isNotEmpty? res.map((e) => TodoModel.fromMap(e)).toList():[];
-    notifyListeners();
+    
     return list;
   }
     //  Delete Note by ID
@@ -53,6 +57,7 @@ class TodoNoteNotifier extends ChangeNotifier {
       final res = db.delete('todoApp',where: 'id=?',whereArgs: [id]);
       notifyListeners();
       return res;
+      
     }
     
     // Delete all Note 
