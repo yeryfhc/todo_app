@@ -21,7 +21,7 @@ class CheckBoxTodo extends ConsumerWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Priority',style: TextStyle( color :Colors.white,fontWeight: FontWeight.bold,fontSize: 30),),
+            const Text('Finish',style: TextStyle( color :Colors.white,fontWeight: FontWeight.bold,fontSize: 30),),
             Checkbox(
               activeColor:const  Color(0xffc46832),
               

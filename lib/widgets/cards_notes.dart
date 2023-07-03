@@ -54,7 +54,7 @@ class TheCardNote extends ConsumerWidget {
                   mainAxisSize: MainAxisSize.min,
                   children:  [ const Padding(
                     padding: EdgeInsets.only(top: 10),
-                    child:  Text('Priority',style: TextStyle(fontSize: 25,color: Colors.black,fontWeight: FontWeight.bold,overflow: TextOverflow.ellipsis),),
+                    child:  Text('Finish',style: TextStyle(fontSize: 25,color: Colors.black,fontWeight: FontWeight.bold,overflow: TextOverflow.ellipsis),),
                   ),
                 Switch.adaptive(
                  activeColor: const Color(0xffc46832),
