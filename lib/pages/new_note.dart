@@ -44,24 +44,20 @@ const NewNotePage({Key? key}) : super(key: key);
           
           // }
         },),
-      const   SizedBox(height: 50,),
+      const   SizedBox(height: 40,),
       Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Container(
-            decoration: BoxDecoration(
-              color:  const Color(0xffc46832),
-              borderRadius: BorderRadius.circular(10)),
-            
-            
-            child: TextButton(onPressed: (){
-                 if (textyery.text.isNotEmpty&&textyery2.text.isNotEmpty) {
-                  notesave.saveNote(TodoModel(title: textyery.text,note: textyery2.text,));
-                  Navigator.pop(context);
-                }
-            }, child: const  Text('Save',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 30),)),
-          ),const CheckBoxTodo(),
+          ButtonSaveAndBack( notesave: notesave,text: 'Save', funtion: (){
+            if (textyery.text.isNotEmpty&&textyery2.text.isNotEmpty) {
+          notesave.saveNote(TodoModel(title: textyery.text,note: textyery2.text,));
+          Navigator.pop(context);
+        }
+          },),
+          ButtonSaveAndBack(notesave: notesave,text: 'Back',funtion: (){
+          Navigator.pop(context);
+          },),
         ],
       ),
       
@@ -70,6 +66,30 @@ const NewNotePage({Key? key}) : super(key: key);
       ],),
       )
    );
+  }
+}
+
+class ButtonSaveAndBack extends StatelessWidget {
+  const ButtonSaveAndBack({
+
+    super.key,
+    required this.text,
+   
+    required this.notesave, required this.funtion,
+  });
+final VoidCallback funtion;
+
+  final TodoNoteNotifier notesave;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(const Color(0xffc46832)),
+        elevation: MaterialStateProperty.all(20),side: MaterialStateProperty.all(const BorderSide(color: Colors.white))),
+      onPressed: funtion , child:  Text(text,style: const  TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 30),));
   }
 }
 

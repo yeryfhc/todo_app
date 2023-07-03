@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:todo_app/data/td_shareprefernce.dart';
 import 'package:todo_app/provider/todo_app_ptovider.dart';
 
 class CheckBoxTodo extends ConsumerWidget {
@@ -25,6 +26,7 @@ class CheckBoxTodo extends ConsumerWidget {
               activeColor:const  Color(0xffc46832),
               
               value:checkProvider.boxchek , onChanged:(void ye){
+                TodoSharePreference.readytd=false;
                 checkProvider.boxchecke();
               
       

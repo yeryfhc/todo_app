@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todo_app/data/db_model.dart';
+import 'package:todo_app/data/td_shareprefernce.dart';
 import 'package:todo_app/model/todo_model.dart';
 
 
@@ -32,15 +33,11 @@ class TodoNoteNotifier extends ChangeNotifier {
   }
     bool boxchek=false;
      boxchecke(){
+      // notifyListeners();
+      if (TodoSharePreference.readytd==false) {
+        TodoSharePreference.readytd=true;
+      }else{TodoSharePreference.readytd=false;}
       notifyListeners();
-      switch (boxchek) {
-        case true: boxchek=false;
-        break;
-        case false:boxchek=true;
-          break;
-        default:boxchek=false;
-        
-      }
     }
   // Get Note
     Future<List<TodoModel>> getNote() async{
