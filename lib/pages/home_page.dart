@@ -85,6 +85,7 @@ const HomePage({Key? key}) : super(key:key);
         background: const  DismisibleDeleteIcon(),
         child: TheCardNote(
           funtioncheck:(v){
+              
             
                noteProvider.boxchecke();
         

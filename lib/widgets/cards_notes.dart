@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todo_app/data/td_shareprefernce.dart';
@@ -59,12 +60,8 @@ class TheCardNote extends ConsumerWidget {
                   children:  [ const Padding(
                     padding: EdgeInsets.only(top: 10),
                     child:  Text('Finish',style: TextStyle(fontSize: 25,color: Colors.black,fontWeight: FontWeight.bold,overflow: TextOverflow.ellipsis),),
-                  ),
-                Switch.adaptive(
-                 activeColor: const Color(0xffc46832),
-                  
-                  
-                  value: TodoSharePreference.readytd, onChanged: funtioncheck)],),
+                  ), Checkbox.adaptive(value: TodoSharePreference.readytd, onChanged: funtioncheck)
+],),
               )
             ],
           ),
