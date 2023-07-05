@@ -1,7 +1,10 @@
 
 
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+  
 
 import 'package:todo_app/model/todo_model.dart';
 
@@ -79,8 +82,16 @@ const HomePage({Key? key}) : super(key:key);
             // log(item.id as num);
         } ,
 
-        background: const DismisibleDeleteIcon(),
-        child: TheCardNote(note: item.note.toString(), title:item.title.toString(),));
+        background: const  DismisibleDeleteIcon(),
+        child: TheCardNote(
+          funtioncheck:(v){
+            
+               noteProvider.boxchecke();
+        
+            
+                  
+        
+          },note: item.note.toString(), title:item.title.toString(), ) );
       })));
 
 

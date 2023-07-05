@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:todo_app/data/td_shareprefernce.dart';
+
 
 
 class TheCardNote extends ConsumerWidget {
   const TheCardNote({super.key, 
+  required this.funtioncheck,
 
 
     required this.note,
@@ -12,10 +15,11 @@ class TheCardNote extends ConsumerWidget {
   });
   final String title;
   final String note;
+  final Function(bool?) funtioncheck;
   
   @override
   Widget build(BuildContext context,ref) {
-   
+  //  final check=ref.watch(todoNoteProvider);
   
     return Container( 
     decoration: BoxDecoration(color: Colors.transparent,borderRadius: BorderRadius.circular(25)),
@@ -60,9 +64,7 @@ class TheCardNote extends ConsumerWidget {
                  activeColor: const Color(0xffc46832),
                   
                   
-                  value: true, onChanged: (v){
-                  return;
-                })],),
+                  value: TodoSharePreference.readytd, onChanged: funtioncheck)],),
               )
             ],
           ),

@@ -23,6 +23,10 @@ final todoNoteProvider = ChangeNotifierProvider<TodoNoteNotifier>((ref) {
 
 
 class TodoNoteNotifier extends ChangeNotifier {
+
+  
+
+
      
       // Save Note
      saveNote(TodoModel newTodomodel) async{
@@ -33,7 +37,7 @@ class TodoNoteNotifier extends ChangeNotifier {
   }
     bool boxchek=false;
      boxchecke(){
-      // notifyListeners();
+      
       if (TodoSharePreference.readytd==false) {
         TodoSharePreference.readytd=true;
       }else{TodoSharePreference.readytd=false;}
