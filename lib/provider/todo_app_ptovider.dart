@@ -51,11 +51,32 @@ class TodoNoteNotifier extends ChangeNotifier {
     
     return list;
   }
+  // Get Trash
+    Future<List<TodoModel>> getNoteTrash() async{
+    final db = await  DBTodoApp.db.database;
+    final res= await db.query('todoAppTrash');
+    List<TodoModel> list =res.isNotEmpty? res.map((e) => TodoModel.fromMap(e)).toList():[];
+    
+    return list;
+  }
+
+
+
+
     //  Delete Note by ID
     deleteNoteID(int id) async{
 
       final db =  await DBTodoApp.db.database;
       final res = db.delete('todoApp',where: 'id=?',whereArgs: [id]);
+      notifyListeners();
+      return res;
+      
+    }
+    //  Delete Note by ID
+    deleteNoteIDTRash(int id) async{
+
+      final db =  await DBTodoApp.db.database;
+      final res = db.delete('todoAppTrash',where: 'id=?',whereArgs: [id]);
       notifyListeners();
       return res;
       

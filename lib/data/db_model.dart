@@ -27,10 +27,25 @@ class DBTodoApp {
          
          ")"
          
+     );  await db.execute(
+        "CREATE TABLE todoAppTrash("
+        " id INTEGER PRIMARY KEY,"
+         "title TEXT,"
+         " note  TEXT"
+         
+         ")"
+         
      );
    });
 
   }
   
+
+
+
+
+
+
+
    
 }

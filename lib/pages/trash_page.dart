@@ -65,7 +65,7 @@ const TrashPage({Key? key}) : super(key:key);
         backgroundColor: const  Color(0xffc46832)
       ),
       body:FutureBuilder(
-        future: noteProvider.getNote(),
+        future: noteProvider.getNoteTrash(),
         builder: ((context, snapshot){
         if (snapshot.hasData){
           
