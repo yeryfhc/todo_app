@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:todo_app/data/td_shareprefernce.dart';
+import 'package:todo_app/pages/home_page.dart';
 
 import 'pages/pages.dart';
 
@@ -26,10 +27,11 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         cardColor: Colors.white,
         primaryColor: const Color(0xfff88340)
-      ), initialRoute: '/',
+      ), initialRoute: 'HomePage',
       routes: {
-        '/':(context) => const HomePage(),
+        'HomePage':(context) => const HomePage(),
         'NewNote':(context) => const NewNotePage(),
+        'Trash':(context) => const TrashPage(),
       },
     
       

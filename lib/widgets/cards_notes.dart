@@ -1,12 +1,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:todo_app/data/td_shareprefernce.dart';
+
 
 
 
 class TheCardNote extends ConsumerWidget {
   const TheCardNote({super.key, 
+  required this.mikey,
   required this.funtioncheck,
 
 
@@ -17,6 +18,7 @@ class TheCardNote extends ConsumerWidget {
   final String title;
   final String note;
   final Function(bool?) funtioncheck;
+  final String mikey;
   
   @override
   Widget build(BuildContext context,ref) {
@@ -52,17 +54,22 @@ class TheCardNote extends ConsumerWidget {
                   
 
 
-                SizedBox(
-                //  color: Colors.green,
-                width: 100,
-                child:  Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children:  [ const Padding(
-                    padding: EdgeInsets.only(top: 10),
-                    child:  Text('Finish',style: TextStyle(fontSize: 25,color: Colors.black,fontWeight: FontWeight.bold,overflow: TextOverflow.ellipsis),),
-                  ), Checkbox.adaptive(value: TodoSharePreference.readytd, onChanged: funtioncheck)
-],),
-              )
+//                 const SizedBox(
+//                 //  color: Colors.green,
+//                 width: 100,
+//                 child:  Column(
+//                   mainAxisSize: MainAxisSize.min,
+//                   children:  [  Padding(
+//                     padding: EdgeInsets.only(top: 10),
+//                     child:  Text('Finish',style: TextStyle(fontSize: 25,color: Colors.black,fontWeight: FontWeight.bold,overflow: TextOverflow.ellipsis),),
+//                   ),
+                  
+                  
+//                   //  Checkbox.adaptive(
+//                   //   key: GlobalKey(debugLabel: mikey),
+//                   //   value: TodoSharePreference.readytd, onChanged: funtioncheck)
+// ],),
+//               )
             ],
           ),
            

@@ -2,28 +2,24 @@
 
 
 
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:page_transition/page_transition.dart';
-  
+import 'package:todo_app/pages/home_page.dart';
 
-import 'package:todo_app/model/todo_model.dart';
-import 'package:todo_app/pages/pages.dart';
-
-
-import 'package:todo_app/provider/todo_app_ptovider.dart';
-
-
-
+import '../model/todo_model.dart';
+import '../provider/todo_app_ptovider.dart';
 import '../widgets/widgets.dart';
 
-
-class HomePage extends ConsumerWidget {
-const HomePage({Key? key}) : super(key:key);
+class TrashPage extends ConsumerWidget {
+const TrashPage({Key? key}) : super(key:key);
   @override
   Widget build(BuildContext context ,ref) {
     final noteProvider= ref.watch(todoNoteProvider);
      
+  
     return Scaffold(
       backgroundColor: const  Color(0xffc46832),
       
@@ -44,11 +40,11 @@ const HomePage({Key? key}) : super(key:key);
        
           
          ButtonDrawer(funcion:(){
-          Navigator.push(context, PageTransition(child: const  HomePage(), type:PageTransitionType.bottomToTop));
+          Navigator.push(context, PageTransition(child: const  HomePage(), type:PageTransitionType.topToBottom));
          }, icons: Icons.lightbulb, text: 'Notes',),
         //  ButtonDrawer(funcion:(){}, icons: Icons.alarm_sharp, text: 'Reminders',),
          ButtonDrawer(funcion:(){
-Navigator.push(context, PageTransition(child: const  TrashPage(), type:PageTransitionType.bottomToTop));
+          Navigator.push(context, PageTransition(child: const  TrashPage(), type:PageTransitionType.fade));
          }, icons: Icons.delete_outlined, text: 'Trash',),
          
           
@@ -59,7 +55,7 @@ Navigator.push(context, PageTransition(child: const  TrashPage(), type:PageTrans
       ),
       appBar: AppBar( 
       
-        title: const  Text('Todo App', style: TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.bold),),
+        title: const  Text('Trash', style: TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.bold),),
        
         actions: const [Padding(
           padding: EdgeInsets.all(4.0),
@@ -117,12 +113,7 @@ Navigator.push(context, PageTransition(child: const  TrashPage(), type:PageTrans
       
       
       
-       )) , floatingActionButton: FloatingActionButton( 
-        backgroundColor: Colors.white,
-        child: const Icon(Icons.add,color: Color(0xffc46832),size: 30,),
-        onPressed: (){
-         Navigator.push(context, PageTransition(child: const  NewNotePage(), type:PageTransitionType.rightToLeft));
-        }),
+       )) 
    );
   }
 }
