@@ -17,14 +17,22 @@ final todoNoteProvider = ChangeNotifierProvider<TodoNoteNotifier>((ref) {
   
 });
 
-
+// 'INSERT INTO Test(name, value, num) VALUES("some name", 1234, 456.789)');
 
 
 
 
 class TodoNoteNotifier extends ChangeNotifier {
 
-  
+        // Save Note
+     saveNoteInTrash(int id) async{
+     final db= await DBTodoApp.db.database;
+     final res = db.rawInsert('Insert into todoApptrash select id, title,note from todoApp');
+     
+    //  rawQuery('Insert into todoApptrash select id, title,note from todoApp');
+     notifyListeners();
+     return res;
+  }
 
 
      

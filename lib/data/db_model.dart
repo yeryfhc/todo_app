@@ -16,12 +16,12 @@ class DBTodoApp {
   
   initDB() async {
    var  documentDirectory = await getDatabasesPath();
-   String  path = join(documentDirectory,'AppTodoApp.db');
+   String  path = join(documentDirectory,'AppTasKDo4.db');
    return  await openDatabase(path,version: 1,onOpen: (db) {  
    },onCreate: (db, version) async{
      await db.execute(
         "CREATE TABLE todoApp("
-        " id INTEGER PRIMARY KEY,"
+        " id INTEGER PRIMARY KEY AUTOINCREMENT,"
          "title TEXT,"
          " note  TEXT"
          
@@ -29,7 +29,7 @@ class DBTodoApp {
          
      );  await db.execute(
         "CREATE TABLE todoAppTrash("
-        " id INTEGER PRIMARY KEY,"
+        " id INTEGER ,"
          "title TEXT,"
          " note  TEXT"
          

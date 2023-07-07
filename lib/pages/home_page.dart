@@ -83,6 +83,8 @@ Navigator.push(context, PageTransition(child: const  TrashPage(), type:PageTrans
         
         direction: DismissDirection.endToStart,
         onDismissed: (direction) {
+
+              noteProvider.saveNoteInTrash(item.id!);
                noteProvider.deleteNoteID(item.id!);
               
             // log(item.id as num);
@@ -141,7 +143,7 @@ class DismisibleDeleteIcon extends StatelessWidget {
     
       mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.max,
-      children: [Text('Delete',style: TextStyle(color: Colors.white,fontSize: 30),),Icon(Icons.delete,color: Colors.white,size: 30,)],),),);
+      children: [Text('Move To Trash',style: TextStyle(color: Colors.white,fontSize: 30),),Icon(Icons.delete,color: Colors.white,size: 30,)],),),);
   }
 }
 

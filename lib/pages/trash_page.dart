@@ -79,7 +79,7 @@ const TrashPage({Key? key}) : super(key:key);
         
         direction: DismissDirection.endToStart,
         onDismissed: (direction) {
-               noteProvider.deleteNoteID(item.id!);
+               noteProvider.deleteNoteIDTRash(item.id!);
               
             // log(item.id as num);
         } ,
